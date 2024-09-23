@@ -30,13 +30,30 @@ function App() {
         completed: !prevTodo.completed } : prevTodo))
   }
 
-  useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem("todos"))
+  // useEffect(() => {
+  //   const todos = JSON.parse(localStorage.getItem("todos"))
 
-    if (todos && todos.length > 0) {
-      setTodos(todos)
+  //   if (todos && todos.length > 0) {
+  //     setTodos(todos)
+  //   }
+  // }, [])
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      try {
+        const todos = JSON.parse(storedTodos);
+        setTodos(todos);
+      } catch (error) {
+        console.error("Error parsing todos from localStorage:", error);
+        // Handle the error, maybe set a default value or clear localStorage
+      }
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos)); 
+  }, [todos]);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos))

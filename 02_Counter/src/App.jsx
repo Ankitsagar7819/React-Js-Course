@@ -10,18 +10,20 @@ function App() {
  
   const addValue = () => {
    
-    // setCounter(counter + 1)
-
-    setCounter(prevCounter => prevCounter + 1)
-    setCounter(prevCounter => prevCounter + 1)
-    setCounter(prevCounter => prevCounter + 1)
-    setCounter(prevCounter => prevCounter + 1)
-
+     setCounter(counter + 1)
   }
+
+    // setCounter(prevCounter => prevCounter + 1)
+    // setCounter(prevCounter => prevCounter + 1)
+    // setCounter(prevCounter => prevCounter + 1)
+    // setCounter(prevCounter => prevCounter + 1)
+
+  
 
   const removeValue = () => {
 
      setCounter(counter - 1)
+  }
  // Interview Prectice Question
 
     // setCounter(prevCounter => prevCounter -1)
@@ -29,7 +31,7 @@ function App() {
     // setCounter(prevCounter => prevCounter - 1)
     // setCounter(prevCounter => prevCounter - 1)
 
-  }
+  
 
 
   return (
